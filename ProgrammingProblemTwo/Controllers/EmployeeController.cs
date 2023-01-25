@@ -69,5 +69,19 @@ namespace ProgrammingProblemTwo.Controllers
             }
             
         }
+        [HttpDelete]
+        public IActionResult DeleteEmployee([FromBody]int id)
+        {
+            try
+            {
+                _employeeService.DeleteEmployee(id);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+          
+        }
     }
 }
