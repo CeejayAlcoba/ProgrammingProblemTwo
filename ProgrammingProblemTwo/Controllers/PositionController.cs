@@ -1,4 +1,5 @@
 ﻿using Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interface;
@@ -11,6 +12,7 @@ namespace ProgrammingProblemTwo.Controllers
 {
     [Route("api/position")]
     [ApiController]
+    [Authorize]
     public class PositionController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
