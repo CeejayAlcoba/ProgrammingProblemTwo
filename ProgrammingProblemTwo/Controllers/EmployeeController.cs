@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Domain.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interface;
@@ -12,6 +13,7 @@ namespace ProgrammingProblemTwo.Controllers
 {
     [Route("api/employee")]
     [ApiController]
+    [Authorize]
     public class EmployeeController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -41,7 +43,7 @@ namespace ProgrammingProblemTwo.Controllers
                 return BadRequest();
             }
            
-        }
+        }        
         [HttpGet]
         public IActionResult GetAllEmployee()
         {

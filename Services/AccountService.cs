@@ -30,14 +30,22 @@ namespace Services
                 _unitOfWork
                 .Employees
                 .GetEmployeeByUsername(credential.username);
-            var hashedInputedPasword =
-                GenerateHashPassword(credential.password
-                , getEmployeeByUsername.credential.salted);
-            if (getEmployeeByUsername != null
-                && getEmployeeByUsername.credential.hashed
-                == hashedInputedPasword)
+
+            if (getEmployeeByUsername != null)
             {
-                return GenerateJSONWebToken(getEmployeeByUsername);
+                var hashedInputedPasword =
+    GenerateHashPassword(credential.password
+    , getEmployeeByUsername.credential.salted);
+                if(hashedInputedPasword 
+                    == getEmployeeByUsername.credential.hashed)
+                {
+
+                    return GenerateJSONWebToken(getEmployeeByUsername);
+                }
+                else
+                {
+                    return null;
+                }
             }
             else return null;
         }
