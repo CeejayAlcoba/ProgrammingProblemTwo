@@ -77,8 +77,10 @@ namespace Services
         public void DeleteEmployee(int id)
         {
 
-            var getEmployeeById = _unitOfWork.Employees.GetById(id);
-            _unitOfWork.Employees.Remove(getEmployeeById);
+            var employee = _unitOfWork.Employees.GetEmployeeById(id);
+            var credential = _unitOfWork.Credentials.GetById(employee.credentialId);
+            _unitOfWork.Employees.Remove(employee);
+            _unitOfWork.Credentials.Remove(credential);
             _unitOfWork.Complete();
         }
         public IEnumerable<Employee> GetAllEmployee()
