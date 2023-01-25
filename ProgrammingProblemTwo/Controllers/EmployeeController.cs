@@ -70,7 +70,8 @@ namespace ProgrammingProblemTwo.Controllers
             
         }
         [HttpDelete]
-        public IActionResult DeleteEmployee([FromBody]int id)
+        [Route("{id}")]
+        public IActionResult DeleteEmployee([FromRoute]int id)
         {
             try
             {
