@@ -12,5 +12,6 @@ namespace Services.Interface
         byte[] GenerateSalt(string password);
         string GenerateHashPassword(string password, byte[] salt);
         string AccountLogin(Credential credential);
+        string GenerateJSONWebToken(Employee employee);
     }
 }

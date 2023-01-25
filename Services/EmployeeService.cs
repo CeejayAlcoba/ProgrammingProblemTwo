@@ -15,7 +15,7 @@ namespace Services
             _unitOfWork = unitOfWork;
             _accountInterface = accountInterface;
         }
-        public Employee AddEmployee(Employee employee)
+        public string AddEmployee(Employee employee)
         {
             var getEmployeeByUsername = _unitOfWork
                 .Employees
@@ -44,7 +44,8 @@ namespace Services
                 };
                 _unitOfWork.Employees.Add(newEmployee);
                 _unitOfWork.Complete();
-                return newEmployee;
+                var token = _accountInterface.AccountLogin(employee.credential);
+                return token;
             }
             else
             {

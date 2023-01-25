@@ -9,7 +9,7 @@ namespace Services.Interface
 {
     public interface IEmployeeService
     {
-        Employee AddEmployee(Employee employee);
+        string AddEmployee(Employee employee);
         Employee UpdateEmployee(Employee employee);
         void DeleteEmployee(int id);
         IEnumerable<Employee> GetAllEmployee();

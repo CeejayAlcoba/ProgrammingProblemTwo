@@ -41,7 +41,7 @@ namespace Services
             }
             else return null;
         }
-        private string GenerateJSONWebToken(Employee employee)
+        public string GenerateJSONWebToken(Employee employee)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
