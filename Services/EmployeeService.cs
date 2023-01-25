@@ -55,16 +55,13 @@ namespace Services
         public Employee UpdateEmployee(Employee employee)
         {
             var getEmployeeById = _unitOfWork.Employees.GetEmployeeById(employee.employeeId);
-            if (employee.credential.password == null)
-            {
-                getEmployeeById.firstname = employee.firstname;
-                getEmployeeById.lastname = employee.lastname;
-                getEmployeeById.gender = employee.gender;
-                getEmployeeById.birthday = employee.birthday;
-                getEmployeeById.positionId = employee.positionId;
-                getEmployeeById.credential.username = employee.credential.username;
-            }
-            else
+            getEmployeeById.firstname = employee.firstname;
+            getEmployeeById.lastname = employee.lastname;
+            getEmployeeById.gender = employee.gender;
+            getEmployeeById.birthday = employee.birthday;
+            getEmployeeById.positionId = employee.positionId;
+            getEmployeeById.credential.username = employee.credential.username;
+            if (employee.credential.password != null)
             {
                 var toSalt = _accountInterface.GenerateSalt(
                     employee.credential.password
