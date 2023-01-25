@@ -39,7 +39,7 @@ namespace Services
                     lastname = employee.lastname,
                     gender = employee.gender,
                     birthday = employee.birthday,
-                    positionId = employee.position.positionId,
+                    positionId = employee.positionId,
                     credential = newCredential
                 };
                 _unitOfWork.Employees.Add(newEmployee);
