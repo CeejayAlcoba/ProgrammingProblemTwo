@@ -32,6 +32,10 @@ namespace DataAccessEfCore
                 new Employee
                 {
                     employeeId = 1,
+                    firstname ="admin",
+                    lastname ="admin",
+                    gender="male",
+                    birthday=DateTime.Now,
                     positionId = 1,
                     credentialId = 1,
                 }

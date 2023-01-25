@@ -9,5 +9,7 @@ namespace Domain.Interfaces
     public interface IEmployeeRepository : IGenericRepository<Employee>
     {
         Employee GetEmployeeByUsername(string username);
+        IEnumerable<Employee> GetEmployee();
+        Employee GetEmployeeById(int id);
     }
 }

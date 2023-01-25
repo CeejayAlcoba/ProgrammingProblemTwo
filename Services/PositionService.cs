@@ -1,5 +1,6 @@
 ﻿using Domain;
 using Domain.Interfaces;
+using Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class PositionService
+    public class PositionService : IPositionService
     {
         private readonly IUnitOfWork _unitOfWork;
         public PositionService(IUnitOfWork unitOfWork)
@@ -17,7 +18,7 @@ namespace Services
         }
         public IEnumerable<Position> GetAllPosition()
         {
-            return _unitOfWork.Positions.GetAll();
+            return _unitOfWork.Positions.GetAll().Where(c=>c.positionId!=1);
         }
     }
 }
